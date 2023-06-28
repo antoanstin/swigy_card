@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+	.row{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.col{
+		width:25%;
+		padding: 12px;
+	}
+	img{
+		width:100%;
+	}
+	.col-card{
+		box-shadow: 0 0 10px #ccc;
+	}
+  </style>
+  <body>
+    <div class="container"></div>
+    <script>
+      let foodList=[
+      	{
+      		id:1,
+      		name:"Food Planet",
+      		cuisine:"Indian, Chinese",
+      		rating:4.0,
+      		imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/99171fa0c12e7dba8bf3738d93464fe1",
+      	},
+      	{
+      		id:2,
+      		name:"Food Planet",
+      		cuisine:"Indian, Chinese",
+      		rating:2.4,
+      		imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/17b4ad13f28fe8be9ced0a0ec90d2274",
+      	},
+      	{
+      		id:3,
+      		name:"Food Planet",
+      		cuisine:"Indian, Chinese",
+      		rating:3.7,
+      		imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/snqx0hx7tbs2k3twakqa",
+      	},
+      	{
+      		id:4,
+      		name:"Food Planet",
+      		cuisine:"Indian, Chinese",
+      		rating:2.8,
+      		imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/203b221988ce52724674f77db2382119",
+      	},
+      	{
+      		id:5,
+      		name:"Food Planet",
+      		cuisine:"Indian, Chinese",
+      		rating:3,
+      		imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/17b4ad13f28fe8be9ced0a0ec90d2274",
+      	},
+      	{
+      		id:6,
+      		name:"Food Planet",
+      		cuisine:"Indian, Chinese",
+      		rating:3.8,
+      		imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/99171fa0c12e7dba8bf3738d93464fe1",
+      	},
+      	{
+      		id:7,
+      		name:"Food Planet",
+      		cuisine:"Indian, Chinese",
+      		rating:4.5,
+      		imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/17b4ad13f28fe8be9ced0a0ec90d2274",
+      	},
+      	{
+      		id:8,
+      		name:"Food Planet",
+      		cuisine:"Indian, Chinese",
+      		rating:4.9,
+      		imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/203b221988ce52724674f77db2382119",
+      	},
+      ];
+      let cont=document.querySelector(".container");
+      let cards=document.createElement("div");
+      cards.classList.add("row");
+      cont.appendChild(cards);
+      foodList.forEach(function(e){
+      	let div =document.createElement("div");
+		div.classList.add("col");
+		cards.appendChild(div);
+		let div2 =document.createElement("div");
+		div2.classList.add("col-card");
+		div.appendChild(div2);
+		let img=document.createElement("img");
+		img.src=e.imgUrl
+		div2.appendChild(img)
+		let head=document.createElement("h2");
+		head.innerHTML=e.name;
+		div2.appendChild(head)
+
+		let para=document.createElement("p");
+		para.innerHTML=e.cuisine;
+		div2.appendChild(para)
+
+		let sp=document.createElement("div");
+		sp.classList.add("sp");
+		div2.appendChild(sp);
+		let rate=document.createElement("h4");
+		rate.classList.add("rate")
+		sp.appendChild(rate);
+		rate.innerHTML=e.rating;
+		sp.style.border="1px solid white";
+		sp.style.display="inline-block"
+		sp.style.padding="10px"
+		
+
+		if(e.rating>3.9){
+			sp.style.backgroundColor="green";
+			sp.style.color="white"
+		}
+		else if(e.rating<3){
+			sp.style.backgroundColor="red";
+			sp.style.color="white"
+		}
+		else {
+			sp.style.backgroundColor="orange";
+			sp.style.color="white"
+		}
+
+      })
+    </script>
+  </body>
+</html>
